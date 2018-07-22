@@ -1,23 +1,23 @@
-from tkinter import *#imported * coz I am gonna need it a lot more
-import webbrowser#For the easter egg
-class lvl1:#Make things easier for me
+from tkinter import *
+import webbrowser
+class lvl1:
     def __init__(self):
-        self.lvl_cnt=1#level counter
-        self.main = Tk()#the window
-        self.main.title('化学澡堂')#change the title
-        self.main.geometry('700x600')#change the size
-        self.main.resizable(0, 0)#Deny the ability to resize the window
-        self.menu=Menu(self.main)#From here...
+        self.lvl_cnt=1
+        self.main = Tk()
+        self.main.title('化学澡堂')
+        self.main.geometry('700x600')
+        self.main.resizable(0, 0)
+        self.menu=Menu(self.main)
         self.main.config(menu=self.menu)
         self.fileMenu = Menu(self.menu)
-        self.menu.add_cascade(menu=self.fileMenu,label='方程式')#...to here creates a menubar
-        self.title = Button(self.main, text='化学澡堂', font='Times 40 bold',command=self.sponsor)#The title/easter egg( if you know how to activate it)
-        self.title.pack()#print the title onscreen
-        self.kohler=False#indicates if easter egg had been triggered
-        self.equation=[True,True,True,True,True,True,True]#indicates if you have already got an equation
-        self.pac7 = PhotoImage(file="thumb.gif").subsample(2, 2)#load the thumbnail
-        self.start = Button(self.main, image=self.pac7, command=self.tart)#creates a button
-        self.start.pack()#splats the button onscreen
+        self.menu.add_cascade(menu=self.fileMenu,label='方程式')
+        self.title = Button(self.main, text='化学澡堂', font='Times 40 bold',command=self.sponsor)
+        self.title.pack()
+        self.kohler=False
+        self.equation=[True,True,True,True,True,True,True]
+        self.pac7 = PhotoImage(file="thumb.gif").subsample(2, 2)
+        self.start = Button(self.main, image=self.pac7, command=self.tart)
+        self.start.pack()
         self.main.mainloop()
     def sponsor(self):
         if self.kohler:
@@ -149,7 +149,7 @@ class lvl1:#Make things easier for me
             self.pic.pack()
             self.choice1 = Button(self.stuff, image=self.pac5, command=self.ch21)
             self.choice1.pack(side=LEFT)
-            self.pac7=PhotoImage('CuSO4.gif').subsample(3,3)
+            self.pac7=PhotoImage(file='CuSO4.gif').subsample(3,3)
             self.choice2=Button(self.stuff,image=self.pac7,command=self.ch22)
             self.choice2.pack(side=RIGHT)
             self.desc = Label(text="这是铁，你要让它泡完澡后不会溶解哦", font="MS 18")
@@ -157,15 +157,11 @@ class lvl1:#Make things easier for me
     def bath(self):
         pass
     def ch22(self):
-        self.pic.pack_forget()
+        self.pic.destroy()
         self.choice2.destroy()
-        self.state = "FeSO4"
-        self.pac7 = PhotoImage(file=self.state + '.gif').subsample(2, 2)
-        self.pic = Label(self.stuff, image=self.pac2)
-        self.pic.pack()
-        self.pac8 = PhotoImage(file="C2H5OH.gif").subsample(3, 3)
-        self.choice2 = Button(self.stuff, text='下一关', command=self.ch22b)
-        self.pac9 = PhotoImage(file='level2win.gif')
+        self.choice1.destroy()
+        self.choice2 = Button(self.stuff, text='下一关', command=self.ch22b,font="MS 18")
+        self.pac9 = PhotoImage(file='level2win.gif').subsample(2,2)
         self.pic = Label(self.stuff, image=self.pac9)
         self.pic.pack()
         self.choice2.pack()
@@ -220,7 +216,10 @@ class lvl1:#Make things easier for me
         self.pic.destroy()
         self.choice2.destroy()
         self.temp.destroy()
+        self.level['text']="Level 3"
         self.pac8 = PhotoImage(file='construction.gif')
         self.pic = Label(self.stuff, image=self.pac8)
         self.pic.pack()
+        self.temp=Label(self.stuff,text="Sorry 'bout that!")
+        self.temp.pack()
 lvl1()
