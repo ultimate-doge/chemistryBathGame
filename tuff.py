@@ -75,8 +75,8 @@ class lvl1:
         self.choice1.pack_forget()
         if self.equation[1]:
             self.equation[1]=False
-            self.fileMenu.add_command(label='Ba(OH)2+H2SO4→+2H2)')
-            self.desc['text'] = "现在他是硫酸钡，你还是要保证它泡完澡后不会消失哦\n你获得了一个新的方程式：Ba(OH)2+H2SO4→+2H2)"
+            self.fileMenu.add_command(label='Ba(OH)2+H2SO4→BaSO4↓+2H2O')
+            self.desc['text'] = "现在他是硫酸钡，你还是要保证它泡完澡后不会消失哦\n你获得了一个新的方程式：Ba(OH)2+H2SO4→BaSO4↓+2H2O"
         self.state = "BaSO4"
         self.pic.destroy()
         self.pac4=PhotoImage(file=self.state+'.gif')
