@@ -1,23 +1,23 @@
-from tkinter import *
-import webbrowser
-class lvl1:
+from tkinter import *#imported * coz I am gonna need it a lot more
+import webbrowser#For the easter egg
+class lvl1:#Make things easier for me
     def __init__(self):
-        self.lvl_cnt=1
-        self.main = Tk()
-        self.main.title('化学澡堂')
-        self.main.geometry('700x600')
-        self.main.resizable(0, 0)
-        self.menu=Menu(self.main)
+        self.lvl_cnt=1#level counter
+        self.main = Tk()#the window
+        self.main.title('化学澡堂')#change the title
+        self.main.geometry('700x600')#change the size
+        self.main.resizable(0, 0)#Deny the ability to resize the window
+        self.menu=Menu(self.main)#From here...
         self.main.config(menu=self.menu)
         self.fileMenu = Menu(self.menu)
-        self.menu.add_cascade(menu=self.fileMenu,label='方程式')
-        self.title = Button(self.main, text='化学澡堂', font='Times 40 bold',command=self.sponsor)
-        self.title.pack()
-        self.kohler=False
-        self.equation=[True,True,True,True,True,True,True]
-        self.pac7 = PhotoImage(file="thumb.gif").subsample(2, 2)
-        self.start = Button(self.main, image=self.pac7, command=self.tart)
-        self.start.pack()
+        self.menu.add_cascade(menu=self.fileMenu,label='方程式')#...to here creates a menubar
+        self.title = Button(self.main, text='化学澡堂', font='Times 40 bold',command=self.sponsor)#The title/easter egg( if you know how to activate it)
+        self.title.pack()#print the title onscreen
+        self.kohler=False#indicates if easter egg had been triggered
+        self.equation=[True,True,True,True,True,True,True]#indicates if you have already got an equation
+        self.pac7 = PhotoImage(file="thumb.gif").subsample(2, 2)#load the thumbnail
+        self.start = Button(self.main, image=self.pac7, command=self.tart)#creates a button
+        self.start.pack()#splats the button onscreen
         self.main.mainloop()
     def sponsor(self):
         if self.kohler:
